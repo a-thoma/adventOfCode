@@ -5,7 +5,8 @@
 # This is my implementation for Advent of Code: Day 1 (part 2)
 # (See: https://adventofcode.com/2017/day/1)
 
-# TODO: implement this
+# function to find matches from arr[i] and arr[i + offset] and return
+# the sum of their numbers
 def captchaTwo(array)
 	result = 0
 	offset = (array.length / 2)
@@ -14,7 +15,7 @@ def captchaTwo(array)
 			result += array[i]
 		end
 	end
-	puts result
+	return result
 end
 
 # function to format and get input from argv
@@ -37,5 +38,5 @@ arr = []
 # get the input for the array
 getInput(arr)
 
-# perform our new function on rb (TODO: describe it!)
-captchaTwo(arr)
+# perform our calculations on the array and print the result
+puts captchaTwo(arr)

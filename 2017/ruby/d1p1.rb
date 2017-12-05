@@ -13,7 +13,7 @@ def matchArr(array)
 			result += array[i]
 		end 
 	end
-	puts result
+	return result
 end
 
 # function to format and get input from argv
@@ -37,4 +37,4 @@ arr = []
 getInput(arr)
 
 # run through the array and return our solution
-matchArr(arr)
+puts matchArr(arr)
