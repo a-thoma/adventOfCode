@@ -5,24 +5,32 @@
 # This is my implementation for Advent of Code: Day 1
 # (See: https://adventofcode.com/2017/day/1)
 
+require 'scanf'
+
 # function to find matches and return the sum of their numbers
-# TODO: Implement this
-def match(array)
-	# might be able to be recursive! a[i] and a[i+1] instead of i in array
-	for i in array
-		# do matches here
+def matchArr(array)
+	for i in 0...(array.length + 1)
+		if i % array.length != 1
+			if array[i] == array[(i + 1) % array.length]
+				result += 1
+			end
+		end 
 	end
 end
 
-# the examples from the problem description
-# TODO: get input from users (?)
+# function to format and get input from argv
+def getInput(array)
+	# input is one bignum, need to convert it
+	# string > arr[strings] > arr[ints]?
+end
 
-arr1 = [1, 1, 2, 2]
-arr2 = [1, 1, 1, 1]
-arr3 = [1, 2, 3, 4]
-arr4 = [9, 1, 2, 1, 2, 1, 2, 9]
+# make a new array
+arr = []
 
-match(arr1)
-match(arr2)
-match(arr3)
-match(arr4)
+# get our input and throw it into the array
+getInput(arr)
+
+# puts arr
+
+# run through the array and return our solution
+# matchArr(arr)
