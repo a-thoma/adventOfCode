@@ -9,19 +9,27 @@ require 'scanf'
 
 # function to find matches and return the sum of their numbers
 def matchArr(array)
-	for i in 0...(array.length + 1)
-		if i % array.length != 1
-			if array[i] == array[(i + 1) % array.length]
-				result += 1
-			end
+	result = 0
+	for i in 0...(array.length)
+		if array[i] == array[(i + 1) % array.length]
+			result += array[i]
 		end 
 	end
+	puts result
 end
 
 # function to format and get input from argv
 def getInput(array)
-	# input is one bignum, need to convert it
-	# string > arr[strings] > arr[ints]?
+	if ARGV[0] == nil
+		puts "Bad input"
+		exit
+	end
+	# input is one string, read it in by char, convert to int, and store in
+	# array, element-by-element
+	ARGV[0].each_byte do |c|
+		array << c.chr.to_i
+	end
+	# puts array
 end
 
 # make a new array
@@ -30,7 +38,5 @@ arr = []
 # get our input and throw it into the array
 getInput(arr)
 
-# puts arr
-
 # run through the array and return our solution
-# matchArr(arr)
+matchArr(arr)
