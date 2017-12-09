@@ -8,11 +8,34 @@
 # function to compute the quotient of the two evenly-divisible numbers
 # in each line of our input, and return their sum
 def checkSum(array)
+	result = 0
 	for i in 0...array.length
-		for j in (i + 1)...array.length
-			# do stuff
+		x = 0
+		for j in 0...(array[i].length - 1)
+			while x < array[i].length
+				if (array[i][j] % array[i][x] == 0)
+					result += (array[i][j] / array[i][x])
+				end
+				x += 1
+			end
 		end
 	end
+	return result
+end
+
+# recursive implementation
+# TODO: get this working!
+def recursiveSum(array, i, j, x)
+	result = 0
+	return if i >= array.size
+	j = 0 if j == (array[i].size - 1)
+	x = 0 if x == array[i].size
+	if array[i][j] % array[i][x] != 0
+		result += recursiveSum(array, i, j, (x + 1))
+	else 
+		return (array[i][j] / array[i][x])
+	end
+	return result
 end
 
 # function to get our input
@@ -42,6 +65,8 @@ arr = Array.new() {Array.new()}
 # read in our input
 getInput(arr)
 
+# puts arr
 # perform our operation and print the result
-checkSum(arr)
+puts checkSum(arr)
+# puts recursiveSum(arr, 0, 0, 1)
 
