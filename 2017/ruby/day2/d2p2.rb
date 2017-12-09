@@ -10,13 +10,15 @@
 def checkSum(array)
 	result = 0
 	for i in 0...array.length
-		x = 0
-		for j in 0...(array[i].length - 1)
-			while x < array[i].length
-				if (array[i][j] % array[i][x] == 0)
-					result += (array[i][j] / array[i][x])
-				end
-				x += 1
+		head = 0
+		tail = 1
+		while (head < array[i].length && head < tail)
+			if array[i][head] % array[i][tail] == 0
+				result += (array[i][head] / array[i][tail])
+				tail += 1
+			end
+			if tail - head == 1
+				head += 1
 			end
 		end
 	end
